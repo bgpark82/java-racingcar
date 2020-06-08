@@ -11,7 +11,8 @@ public class Fuel {
         this.fuel = getRandom();
     }
 
-    public int getRandom() {
+
+    private int getRandom() {
         return new Random(MAXIMUM_NUMBER).nextInt();
     }
 
