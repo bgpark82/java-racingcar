@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Car {
 
     private final Name name;
-    private int position;
+    private Position position;
 
     public static Car of(String name) {
         return new Car(name, 0);
@@ -13,31 +13,38 @@ public class Car {
 
     Car(String name, int position) {
         this.name = new Name(name);
-        this.position = position;
+        this.position = new Position(position);
     }
 
     public void move(int fuel) {
         if(fuel >= 4) {
-            this.position += 1;
+            this.position = position.move();
         }
     }
 
     public int getPosition() {
-        return this.position;
+        return this.position.getPosition();
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return position == car.position &&
-                Objects.equals(name, car.name);
+        return Objects.equals(name, car.name) &&
+                Objects.equals(position, car.position);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name, position);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name=" + name +
+                ", position=" + position +
+                '}';
     }
 }
