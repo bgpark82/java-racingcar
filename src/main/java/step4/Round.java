@@ -29,4 +29,8 @@ public class Round {
     public int hashCode() {
         return Objects.hash(round);
     }
+
+    public int getRound() {
+        return round;
+    }
 }
