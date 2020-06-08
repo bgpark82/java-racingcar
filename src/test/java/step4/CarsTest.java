@@ -24,8 +24,7 @@ public class CarsTest {
 
         String names = "peter,kassie,oak";
         Cars cars = new Cars(names);
-        List<Car> list = cars.split(names);
 
-        assertThat(list).isEqualTo(result);
+        assertThat(cars.getCars()).isEqualTo(result);
     }
 }

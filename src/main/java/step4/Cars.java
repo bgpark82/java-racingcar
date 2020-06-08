@@ -2,25 +2,38 @@ package step4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Cars {
 
+    private static final String SPLIT_REGEX = ",";
+    private final List<Car> cars = new ArrayList<>();
 
     public Cars(String names) {
-
+        split(names);
     }
 
-    public boolean equals(Object o) {
-        Cars c = (Cars) o;
-        return getClass().equals(c.getClass());
-    }
-
-    public List<Car> split(String names) {
-        String[] list = names.split(",");
-        List<Car> cars = new ArrayList<>();
-        for(int i = 0; i < list.length; i++){
-            cars.add(Car.of(list[i]));
+    public void split(String names) {
+        String[] list = names.split(SPLIT_REGEX);
+        for(String name: list) {
+            this.cars.add(Car.of(name));
         }
+    }
+
+    public List<Car> getCars() {
         return cars;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cars cars1 = (Cars) o;
+        return Objects.equals(cars, cars1.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cars);
     }
 }

@@ -1,8 +1,6 @@
 # 자동차 경주 (우승자)
 
 ## TODO
-- [ ] String 이름 받아서 자동차 List 생성
-- [ ] String을 split하여 Car 객체 생성
 - [ ] 시도할 횟수 
 - [ ] 자동차 이름은 ,로 구분
 - [ ] 자동차는 5번 움직인다
@@ -25,3 +23,5 @@
 - [x] Fuel 클래스 추가
 - [x] fuel 값이 0에서 9사이의 값
 - [x] getRandom() private 메소드로 바꾸기
+- [x] String 이름 받아서 자동차 List 생성
+- [x] String을 split하여 Car 객체 생성
