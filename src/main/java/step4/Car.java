@@ -16,8 +16,8 @@ public class Car {
         this.position = new Position(position);
     }
 
-    public void move(int fuel) {
-        if(fuel >= 4) {
+    public void move(Fuel fuel) {
+        if(fuel.isValid()) {
             this.position = position.move();
         }
     }

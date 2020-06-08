@@ -14,8 +14,14 @@ class CarTest {
 
     @Test
     void move() {
+        Fuel fuel = new Fuel() {
+            @Override
+            protected int getRandom() {
+                return 4;
+            }
+        };
         Car peter = Car.of("peter");
-        peter.move(4);
+        peter.move(fuel);
         assertThat(peter.getPosition()).isEqualTo(1);
     }
 }

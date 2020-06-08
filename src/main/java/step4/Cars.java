@@ -7,9 +7,12 @@ import java.util.Objects;
 public class Cars {
 
     private static final String SPLIT_REGEX = ",";
+    private static final String EMPTY = "";
+
     private final List<Car> cars = new ArrayList<>();
 
     public Cars(String names) {
+        invalid(names);
         split(names);
     }
 
@@ -17,6 +20,24 @@ public class Cars {
         String[] list = names.split(SPLIT_REGEX);
         for(String name: list) {
             this.cars.add(Car.of(name));
+        }
+    }
+
+    public List<Car> move(Fuel fuel) {
+        List<Car> list = new ArrayList<>();
+        for(Car car : cars) {
+            car.move(fuel);
+            list.add(car);
+        }
+        return list;
+    }
+
+    private void invalid(String names) {
+        if(names == EMPTY) {
+            throw new IllegalArgumentException();
+        }
+        if(names == null) {
+            throw new IllegalArgumentException();
         }
     }
 
@@ -36,4 +57,6 @@ public class Cars {
     public int hashCode() {
         return Objects.hash(cars);
     }
+
+
 }

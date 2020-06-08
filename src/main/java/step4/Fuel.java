@@ -11,9 +11,12 @@ public class Fuel {
         this.fuel = getRandom();
     }
 
-
-    private int getRandom() {
+    protected int getRandom() {
         return new Random(MAXIMUM_NUMBER).nextInt();
+    }
+
+    public boolean isValid(){
+        return this.fuel >= 4;
     }
 
     public boolean equals(Object o) {
