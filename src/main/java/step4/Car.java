@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Car {
 
-    private final String name;
+    private final Name name;
     private int position;
 
     public static Car of(String name) {
@@ -12,18 +12,8 @@ public class Car {
     }
 
     Car(String name, int position) {
-        invalid(name);
-        this.name = name;
+        this.name = new Name(name);
         this.position = position;
-    }
-
-    private void invalid(String name) {
-        if(name == "") {
-            throw new IllegalArgumentException();
-        }
-        if(name == null) {
-            throw new IllegalArgumentException();
-        }
     }
 
     public void move(int fuel) {

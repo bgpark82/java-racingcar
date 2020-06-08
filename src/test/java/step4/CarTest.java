@@ -13,12 +13,6 @@ class CarTest {
     }
 
     @Test
-    void name_is_not_null_or_empty() {
-        assertThatThrownBy(() -> Car.of("")).isInstanceOf(IllegalArgumentException.class);
-        assertThatThrownBy(() -> Car.of(null)).isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     void move() {
         Car peter = Car.of("peter");
         peter.move(4);
